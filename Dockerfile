@@ -1,4 +1,4 @@
-FROM openshift/rhel7.2
+FROM centos:7
 
 MAINTAINER AFS PAAS <tbd@tbd.com>
 
