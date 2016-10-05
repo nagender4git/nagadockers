@@ -1,4 +1,4 @@
-FROM rhel6
+FROM rhel7.2
 
 MAINTAINER AFS PAAS <tbd@tbd.com>
 
