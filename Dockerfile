@@ -1,4 +1,4 @@
-FROM centos
+FROM centos7
 
 MAINTAINER AFS PAAS <tbd@tbd.com>
 
