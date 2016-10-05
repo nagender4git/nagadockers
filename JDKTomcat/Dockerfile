@@ -22,7 +22,7 @@ RUN cd /tmp
 RUN wget http://apache.mirrors.pair.com/tomcat/tomcat-7/v7.0.72/bin/apache-tomcat-7.0.72.tar.gz
 
  # untar and move to proper location
-#RUN cd /tmp
+
 RUN tar xvf apache-tomcat-7.0.72.tar.gz
 
 #RUN cd /tmp;
