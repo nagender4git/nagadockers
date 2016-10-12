@@ -9,7 +9,6 @@ RUN yum install -y tar curl
 
 RUN cd /opt
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u55-b13/jdk-7u55-linux-x64.tar.gz
-RUN pwd
 
 RUN cd /opt
 RUN tar xvf jdk-7u55-linux-x64.tar.gz
