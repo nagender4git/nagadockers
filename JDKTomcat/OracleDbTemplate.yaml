@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
         -
-		  name: oracledatabase
+	  name: oracledatabase
           image: 'oracledb:11xe'
           ports:
             -
