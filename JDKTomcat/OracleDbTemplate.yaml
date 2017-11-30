@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: v1
 kind: DeploymentConfig
 metadata:
@@ -68,3 +69,75 @@ status:
           from:
             kind: ImageStreamTag
             name: 'oracledb:11xe'
+=======
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: oracledatabase
+  namespace: oradb
+  labels:
+    app: oracledatabase
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {  }
+  triggers:
+    -
+      type: ConfigChange
+    -
+      type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - oracledatabase
+        from:
+          kind: ImageStreamTag
+          name: 'oracledb:11xe'
+  replicas: 1
+  test: false
+  selector:
+    app: oracledatabase
+    deploymentconfig: oracledatabase
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: oracledatabase
+        deploymentconfig: oracledatabase
+
+    spec:
+      containers:
+        -
+	  name: oracledatabase
+          image: 'oracledb:11xe'
+          ports:
+            -
+              containerPort: 1521
+              protocol: TCP
+            -
+              containerPort: 8080
+              protocol: TCP
+          resources: {  }
+          terminationMessagePath: /dev/termination-log
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {  }
+status:
+  latestVersion: 1
+  details:
+    causes:
+      -
+        type: ImageChange
+        imageTrigger:
+          from:
+            kind: ImageStreamTag
+            name: 'oracledb:11xe'
+>>>>>>> 9921d96ae6c9d1617af22ba99894c33556a85d52
